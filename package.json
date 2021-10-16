@@ -1,0 +1,15 @@
+{
+  "name": "template-youtube-label",
+  "version": "1.0.0",
+  "description": "A simple .txt file generator to create my youtube channel title, subtitle, and other things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Augusto Francisco",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
