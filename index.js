@@ -4,6 +4,18 @@ const inquirer = require("inquirer");
 let songName = "In The End";
 let bandName = "Linkin Park";
 
+function capitalizeFirstLetter([ first, ...rest ], locale) {
+  return [ first.toLocaleUpperCase(locale), ...rest ].join('');
+}
+const formatTitle = (element) => {
+  let result = ''
+  element.split(' ').map((letter, i) => {
+    if (i === 0) result += letter.toLowerCase()
+    else result += capitalizeFirstLetter(letter, 'tr')
+  } )
+  return(result)
+}
+
 const questions = [
   {
     type: "input",
@@ -37,8 +49,9 @@ inquirer.prompt(questions).then((answers) => {
 
     stream.write("--tags--\r\n");
     stream.write(
-      `letra, tradução, legendado, lyrics, beijar um porco, ${songName}, ${bandName},`
+      `letra, tradução, legendado, lyrics, beijar um porco, ${songName}, ${bandName}, \r\n`
     );
+    stream.write(`#${formatTitle(songName)}  #${formatTitle(bandName)}`)
 
     stream.end();
   });
