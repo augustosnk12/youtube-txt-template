@@ -47,11 +47,13 @@ inquirer.prompt(questions).then((answers) => {
       "I have no rights to the music, I just made this video for Brazilian fans of the band, if you want me to remove the video from the air, just send me a message that I will immediately withdraw. \r\n \r\n"
     );
 
+    stream.write(`#${formatTitle(bandName)} #${formatTitle(songName)} \r\n \r\n`)
+
     stream.write("--tags--\r\n");
     stream.write(
       `letra, tradução, legendado, lyrics, beijar um porco, ${songName}, ${bandName}, \r\n`
     );
-    stream.write(`#${formatTitle(songName)}  #${formatTitle(bandName)}`)
+    
 
     stream.end();
   });
